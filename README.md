@@ -1,6 +1,6 @@
 # RiotClient
 
-TODO: Write a gem description
+A Ruby interface to Riot API that is available at http://developer.riotgames.com/api/methods
 
 ## Installation
 
@@ -16,9 +16,37 @@ Or install it yourself as:
 
     $ gem install riot_client
 
+Then create a initializer (config/initializers/riot_client.rb for rails projects):
+
+    RiotClient.configure do |config|
+      config.api_key = ENV["YOUR-API-KEY"]
+    end
+
 ## Usage
 
-TODO: Write usage instructions here
+    champions = RiotClient.champions
+
+    champions.each do |champion|
+      puts champion.id
+      puts champion.name
+      puts champion.active
+      puts champion.attack_rank
+      puts champion.defense_rank
+      puts champion.magic_rank
+      puts champion.difficulty_rank
+      puts champion.bot_enabled
+      puts champion.free_to_play
+      puts champion.bot_mm_enabled
+      puts champion.ranked_play_enabled
+    end
+
+Optionally you can change default parameters:
+
+    RiotClient.champions(region = 'na', version = '1.1', params = {})
+
+## TODO:
+  - Complete all endpoints
+  - Write more examples
 
 ## Contributing
 
