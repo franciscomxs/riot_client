@@ -1,11 +1,13 @@
 module RiotClient
   class ChampionService
 
-    attr_accessor :region, :version
+    attr_accessor :region, :version, :endpoint, :params
 
-    def initialize(region = 'na', version = '1.1')
+    def initialize(region = 'na', version = '1.1', params = {})
       @region = region
       @version = version
+      @params = params
+      @endpoint = "champion"
     end
 
     def all(version = "1.1")
@@ -17,7 +19,7 @@ module RiotClient
     private
 
     def champions_hash
-      data = Service.get(region, version, "champion")
+      data = Service.get(region, version, endpoint, params)
       data["champions"]
     end
   end
