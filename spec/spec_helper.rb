@@ -35,3 +35,7 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.filter_sensitive_data('API_KEY') { ENV['API_KEY'] }
 end
+
+RiotClient.configure do |config|
+  config.api_key = ENV['API_KEY']
+end
