@@ -16,4 +16,8 @@ module RiotClient
     self.configuration ||= Configuration.new
     yield(configuration)
   end
+
+  def self.champions(region = 'na', version = '1.1', params = {})
+    RiotClient::ChampionService.new(region, version, params).all
+  end
 end
