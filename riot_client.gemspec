@@ -27,4 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "simplecov", "0.7.1"
 
   spec.add_dependency "rest-client", "~> 1.6.7"
+  spec.add_dependency "activesupport", "~> 4.0"
 end
