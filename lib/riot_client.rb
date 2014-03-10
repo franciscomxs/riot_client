@@ -10,14 +10,14 @@ require 'riot_client/models/champion'
 module RiotClient
   class << self
     attr_accessor :configuration
-  end
 
-  def self.configure
-    self.configuration ||= Configuration.new
-    yield(configuration)
-  end
+    def configure
+      self.configuration ||= Configuration.new
+      yield(configuration)
+    end
 
-  def self.champions(region = 'na', version = '1.1', params = {})
-    RiotClient::ChampionService.new(region, version, params).all
+    def champions(region = 'na', version = '1.1', params = {})
+      RiotClient::ChampionService.new(region, version, params).all
+    end
   end
 end
